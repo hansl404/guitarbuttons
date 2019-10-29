@@ -4,11 +4,12 @@ import { cons, first, rest, Node } from "introcs/list";
 
 export let main = async () => {
 
-    let list = cons("N", cons("C", null));
+    // A list keeps track of its first node
+    let list: Node<string> = cons("C", null);
     print("list: " + list);
 
-    // TODO: cons U onto list
-    list = cons("U", list);
+    // TODO: cons U onto a new list
+
     print("list: " + list);
 
     // TODO: Print the 2nd and 3rd Values
