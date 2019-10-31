@@ -9,6 +9,16 @@ export let main = async () => {
     print("numbers includes 550 " + includesNumber(numbers, 550));
 };
 
+let includes = (list: Node<string>, search: string): boolean => {
+    if (list === null) {
+        return false;
+    } else if (first(list) === search) {
+        return true;
+    } else {
+        return includes(rest(list), search);
+    }
+};
+
 let includesString = (list: Node<string>, search: string): boolean => {
     if (list === null) {
         return false;
