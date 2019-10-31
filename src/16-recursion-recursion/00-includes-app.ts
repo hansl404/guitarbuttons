@@ -11,13 +11,7 @@ export let main = async () => {
 
 // TODO: Implement the includes Function
 let includes = (list: Node<string>, search: string): boolean => {
-    if (list === null) {
-        return false;
-    } else if (first(list) === search) {
-        return true;
-    } else {
-        return includes(rest(list), search);
-    }
+    return false;
 };
 
 main();
