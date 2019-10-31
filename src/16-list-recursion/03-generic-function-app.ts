@@ -1,38 +1,32 @@
 import { print } from "introcs";
+import { Node, cons, first, rest } from "introcs/list";
 
 export let main = async () => {
-    let a = consString("hello, world", null);
-    let b = consNumber(110, null);
+    let strings = cons("foo", cons("bar", null));
+    print("strings includes bar " + includesString(strings, "bar"));
 
-    print(a.data);
-    print(b.data);
+    let numbers = cons(110, cons(401, null));
+    print("numbers includes 550 " + includesNumber(numbers, 550));
 };
 
-export class Node<T> {
-    data: T;
-    next: Node<T> = null;
-}
-
-// TODO: Define cons using generic types.
-export let cons = (data: string, next: Node<string>): Node<string> => {
-    let n = new Node<string>();
-    n.data = data;
-    n.next = next;
-    return n;
+let includesString = (list: Node<string>, search: string): boolean => {
+    if (list === null) {
+        return false;
+    } else if (first(list) === search) {
+        return true;
+    } else {
+        return includesString(rest(list), search);
+    }
 };
 
-export let consString = (data: string, next: Node<string>): Node<string> => {
-    let n = new Node<string>();
-    n.data = data;
-    n.next = next;
-    return n;
-};
-
-export let consNumber = (data: number, next: Node<number>): Node<number> => {
-    let n = new Node<number>();
-    n.data = data;
-    n.next = next;
-    return n;
+let includesNumber = (list: Node<number>, search: number): boolean => {
+    if (list === null) {
+        return false;
+    } else if (first(list) === search) {
+        return true;
+    } else {
+        return includesNumber(rest(list), search);
+    }
 };
 
 main();
