@@ -2,28 +2,25 @@ import { print } from "introcs";
 import { Node, cons, first, rest } from "introcs/list";
 
 export let main = async () => {
-    print(sumI(3, 5));
-    print(sumI(5, 3));
-    print(sumR(3, 5));
-    print(sumR(5, 3));
+    let small = 3;
+    let big = 5;
+    // Recursive Sum
+    print("Recursive:");
+    print(sumR(big, small));
+    print(sumR(small, big));
+    // Iterative Sum
+    print("Iterative:");
+    print(sumI(small, big));
+    print(sumI(big, small));
 };
 
 let sumI = (a: number, b: number): number => {
     let result = 0;
-    if (a <= b) {
-        while (a <= b) {
-            result += a;
-            a++;
-        }
-    } else {
-        while (a >= b) {
-            result += a;
-            a--;
-        }
-    }
+    // TODO
     return result;
 };
 
+// Example Recursive sum Implementation
 let sumR = (a: number, b: number): number => {
     if (a === b) {
         return a;

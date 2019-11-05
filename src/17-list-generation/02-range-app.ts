@@ -7,7 +7,7 @@ export let main = () => {
     print(numbers);
 };
 
-let range = (lo: number, hi: number): Node<number> => {
+let range = (from: number, to: number): Node<number> => {
     return null;
 };
 
